@@ -1,4 +1,4 @@
-const Users = require("../models/user.model")
+const Users = require("../models/users.model")
 const { uuidGenerator, hashPassword } = require("../utils/functions")
 
 const getAllUsers = () => Users.findAll()
