@@ -8,10 +8,10 @@ const Instructions = db.define('instructions', {
     primaryKey: true,
     allowNull: false
   },
-  recipesId: {
+  recipeId: {
     type: DataTypes.UUID,
     allowNull: false,
-    field: 'recipes_id',
+    field: 'recipe_id',
     references: {
       key: 'id',
       model: Recipes

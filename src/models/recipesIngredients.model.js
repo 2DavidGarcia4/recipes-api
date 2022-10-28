@@ -3,16 +3,16 @@ const { DataTypes } = require("sequelize")
 const Recipes = require("./recipes.model")
 const Ingredients = require("./ingredients.model")
 
-const Types = db.define('types', {
+const RecipesIngredients = db.define('recipes_ingredients', {
   id: {
     type: DataTypes.UUID,
     primaryKey: true,
     allowNull: false
   },
-  recipesId: {
+  recipeId: {
     type: DataTypes.UUID,
     allowNull: false,
-    field: 'recipes_id',
+    field: 'recipe_id',
     references: {
       key: 'id',
       model: Recipes
@@ -34,4 +34,4 @@ const Types = db.define('types', {
 })
 
 
-module.exports = Types
+module.exports = RecipesIngredients

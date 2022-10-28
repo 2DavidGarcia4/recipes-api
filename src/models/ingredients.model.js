@@ -23,12 +23,13 @@ const Ingredients = db.define('ingredients', {
   },
   urlImg: {
     type: DataTypes.STRING,
-    allowNull: false,
     field: 'url_img',
     validate: {
       isUrl: true
     }
   }
+}, {
+  timestamps: false
 })
 
 
