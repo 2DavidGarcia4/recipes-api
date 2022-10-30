@@ -12,8 +12,18 @@ const uuidGenerator = () => {
   return uuid.join('')
 }
 
+const sendResponse = (res, data, status = 200) => res.status(status).json(data)
+
+const sendError = (res, {message}, status = 400) => res.status(status).json({message})
+
 const hashPassword = (plainPassword) => hashSync(plainPassword, 10)
 
 const comparePassword = (plainPassword, hashPassword) => compare(plainPassword, hashPassword)
 
-module.exports = { uuidGenerator, hashPassword, comparePassword }
+module.exports = { 
+  uuidGenerator,
+  sendResponse,
+  sendError, 
+  hashPassword, 
+  comparePassword 
+}
