@@ -3,6 +3,7 @@ const { port } = require("./config")
 const { uuidGenerator } = require("./utils/functions")
 const usersRoutes = require("./users/users.routes")
 const authRouters = require("./auth/auth.routes")
+const categoriesRouters = require("./categories/categories.routes")
 const db = require("./utils/database")
 const { initModels } = require("./models/initModels")
 console.log(uuidGenerator())
@@ -12,6 +13,7 @@ const app = express(), prefix = '/api/v1/'
 app.use(express.json())
 app.use(prefix+'users', usersRoutes)
 app.use(prefix+'auth', authRouters)
+app.use(prefix+'categories', categoriesRouters)
 
 
 db.authenticate()
