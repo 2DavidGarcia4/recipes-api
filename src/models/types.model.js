@@ -1,6 +1,5 @@
 const db = require("../utils/database")
 const { DataTypes } = require("sequelize")
-const Ingredients = require("./ingredients.model")
 
 const Types = db.define('types', {
   id: {
