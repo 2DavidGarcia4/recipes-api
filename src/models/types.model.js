@@ -2,16 +2,12 @@ const db = require("../utils/database")
 const { DataTypes } = require("sequelize")
 const Ingredients = require("./ingredients.model")
 
-const Typess = db.define('types', {
+const Types = db.define('types', {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,
-    allowNull: false,
-    references: {
-      key: 'id',
-      model: Ingredients
-    }
+    allowNull: false
   },
   name: {
     type: DataTypes.STRING,
@@ -23,4 +19,4 @@ const Typess = db.define('types', {
 })
 
 
-module.exports = Typess
+module.exports = Types

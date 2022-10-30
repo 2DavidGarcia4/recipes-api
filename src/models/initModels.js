@@ -15,28 +15,28 @@ const initModels = () => {
 
   Types.hasMany(Ingredients)
 
-  Recipes.hasMany(Users)
   Recipes.hasMany(UsersRecipes)
+  Recipes.hasMany(RecipesIngredients)
+  Recipes.hasMany(Instructions)
+  Recipes.belongsTo(Users)
   Recipes.belongsTo(Categories)
-  Recipes.belongsTo(Instructions)
-  Recipes.belongsTo(RecipesIngredients)
 
   Categories.hasMany(Recipes)
 
+  Ingredients.hasMany(UsersIngredients)
+  Ingredients.hasMany(RecipesIngredients)
   Ingredients.belongsTo(Types)
-  Ingredients.belongsTo(UsersIngredients)
-  Ingredients.belongsTo(RecipesIngredients)
 
   Instructions.belongsTo(Recipes)
 
-  UsersRecipes.hasHook(Users)
+  UsersRecipes.belongsTo(Users)
   UsersRecipes.belongsTo(Recipes)
 
   UsersIngredients.belongsTo(Users)
   UsersIngredients.belongsTo(Ingredients)
 
   RecipesIngredients.belongsTo(Recipes)
-  RecipesIngredients.hasMany(Ingredients)
+  RecipesIngredients.belongsTo(Ingredients)
 }
 
 module.exports = { initModels }

@@ -18,8 +18,8 @@ const Ingredients = db.define('ingredients', {
     field: 'type_id',
     references: {
       key: 'id',
-      model: Types
-    }
+      model: Types,
+    },
   },
   urlImg: {
     type: DataTypes.STRING,

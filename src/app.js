@@ -1,7 +1,7 @@
 const express = require("express")
 const { port } = require("./config")
 const { uuidGenerator } = require("./utils/functions")
-const usersRoutes = require("./users/users.routers")
+const usersRoutes = require("./users/users.routes")
 const authRouters = require("./auth/auth.routes")
 const db = require("./utils/database")
 const { initModels } = require("./models/initModels")
