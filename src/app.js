@@ -15,7 +15,7 @@ app.use(express.json())
 app.use(prefix+'users', usersRoutes)
 app.use(prefix+'auth', authRouters)
 app.use(prefix+'categories', categoriesRouters)
-app.use(prefix+'types', categoriesRouters)
+app.use(prefix+'types', typesRouters)
 
 
 db.authenticate()

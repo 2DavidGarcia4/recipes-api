@@ -14,7 +14,7 @@ const getAllTypes = async (req, res) => {
 
 const getTypeById = async (req, res) => {
   try {
-    const { id } = req.params, type = typesControllers.getTypeById(id)
+    const { id } = req.params, type = await typesControllers.getTypeById(id)
     if(!type) return sendResponse(res, {message: 'Invalid id'}, 404)
     sendResponse(res, type)
 
