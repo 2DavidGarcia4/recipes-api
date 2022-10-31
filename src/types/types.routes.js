@@ -25,3 +25,6 @@ router.route('/:id')
     adminValidate,
     typeServices.deleteType
   )
+
+
+module.exports = router
