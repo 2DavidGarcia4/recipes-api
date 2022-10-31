@@ -2,7 +2,7 @@ const router = require("express").Router()
 const typeServices = require("./types.services")
 const passport = require("passport")
 const { adminValidate } = require("../middlewares/role.midelware")
-require("../middlewares/auth.middleware")()
+require("../middlewares/auth.middleware")(passport)
 
 router.route('/')
   .get(
