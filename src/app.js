@@ -1,4 +1,5 @@
 const express = require("express")
+const cosrs = require("cors")
 const { port } = require("./config")
 const { uuidGenerator } = require("./utils/functions")
 const usersRoutes = require("./users/users.routes")
@@ -12,6 +13,7 @@ console.log(uuidGenerator())
 const app = express(), prefix = '/api/v1/'
 
 app.use(express.json())
+app.use(cosrs())
 app.use(prefix+'users', usersRoutes)
 app.use(prefix+'auth', authRouters)
 app.use(prefix+'categories', categoriesRouters)
