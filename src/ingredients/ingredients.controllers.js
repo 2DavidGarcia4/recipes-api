@@ -1,6 +1,6 @@
 const { uuidGenerator } = require("../utils/functions")
 
-const Ingredients = require('../models/ingredients.models')
+const Ingredients = require('../models/ingredients.model')
 
 const getAllIngredients = async () => {
   const data = await Ingredients.findAll()

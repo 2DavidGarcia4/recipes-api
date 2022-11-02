@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const passport = require('passport')
-const adminMiddleware = require('../middlewares/role.middleware')
+const adminMiddleware = require('../middlewares/auth.middleware')
 
 const ingredientServices = require('./ingredients.services')
 require('../middlewares/auth.middleware')(passport)

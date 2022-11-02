@@ -10,7 +10,6 @@ const typesRouters = require("./types/types.routes")
 const ingredientsRouters = require("./ingredients/ingredients.routes")
 const instructionsRouters = require("./instructions/instructions.routes")
 
-const typesRouters = require("./types/types.routes")
 const db = require("./utils/database")
 const { initModels } = require("./models/initModels")
 console.log(uuidGenerator())

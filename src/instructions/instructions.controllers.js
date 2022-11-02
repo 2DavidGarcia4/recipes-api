@@ -1,6 +1,6 @@
 const { uuidGenerator } = require("../utils/functions")
 
-const Instructions = require('../models/instructions.models')
+const Instructions = require('../models/instructions.model')
 
 const getAllInstructions = async () => {
   const data = await Instructions.findAll()

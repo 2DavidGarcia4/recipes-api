@@ -1,6 +1,6 @@
 const { uuidGenerator } = require("../functions")
 
-const Instructions = require('../../models/instructions.models')
+const Instructions = require('../../models/instructions.model')
 
 Instructions.bulkCreate([
   {

@@ -1,4 +1,4 @@
-const Types = require('../../models/types.models')
+const Types = require('../../models/types.model')
 
 Types.bulkCreate([
   {id: 1, name: 'Aceites y materias grasas'},

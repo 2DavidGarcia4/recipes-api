@@ -1,4 +1,4 @@
-const instructionControllers = require('./instructions.controller')
+const instructionControllers = require('./instructions.controllers')
 
 const getAllInstructions = (req, res) => {
   instructionControllers.getAllInstructions()
