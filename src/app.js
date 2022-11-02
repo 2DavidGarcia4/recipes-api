@@ -2,9 +2,14 @@ const express = require("express")
 const cosrs = require("cors")
 const { port } = require("./config")
 const { uuidGenerator } = require("./utils/functions")
+
 const usersRoutes = require("./users/users.routes")
 const authRouters = require("./auth/auth.routes")
 const categoriesRouters = require("./categories/categories.routes")
+const typesRouters = require("./types/types.routes")
+const ingredientsRouters = require("./ingredients/ingredients.routes")
+const instructionsRouters = require("./instructions/instructions.routes")
+
 const typesRouters = require("./types/types.routes")
 const db = require("./utils/database")
 const { initModels } = require("./models/initModels")
@@ -18,6 +23,8 @@ app.use(prefix+'users', usersRoutes)
 app.use(prefix+'auth', authRouters)
 app.use(prefix+'categories', categoriesRouters)
 app.use(prefix+'types', typesRouters)
+app.use(prefix+'ingredients', ingredientsRouters)
+app.use(prefix+'instructions', instructionsRouters)
 
 
 db.authenticate()
