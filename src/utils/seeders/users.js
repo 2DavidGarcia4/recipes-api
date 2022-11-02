@@ -22,6 +22,7 @@ Users.create({
   lastName: 'Root',
   email: 'admin@admin.com',
   password: 'root',
+  role: 'admin',
   phone: faker.phone.number(),
   birthday: faker.date.birthdate()
 })
