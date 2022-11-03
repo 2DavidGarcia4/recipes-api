@@ -1,3 +1,4 @@
+const { sendResponse, sendError } = require('../utils/functions')
 const ingredientControllers = require('./ingredients.controllers')
 
 const getAllIngredients = (req, res) => {
@@ -11,7 +12,7 @@ const getAllIngredients = (req, res) => {
 }
 
 const getIngredientById = (req, res) => {
-  const id = req.params.ingredient_id
+  const id = req.params.ingredientId
   ingredientControllers.getIngredientById(id)
     .then(data => {
       if (data) {
@@ -53,7 +54,7 @@ const postIngredient = (req, res) => {
 
 const patchIngredient = (req, res) => {
   const { name, typeId, urlImg } = req.body
-  const id = req.params.ingredient_id
+  const id = req.params.ingredientId
   ingredientControllers.updateIngredient(id, { name, typeId, urlImg })
     .then(data => {
       if (data[0]) {
@@ -68,7 +69,7 @@ const patchIngredient = (req, res) => {
 }
 
 const deleteIngredient = (req, res) => {
-  const id = req.params.ingredient_id
+  const id = req.params.ingredientId
 
   ingredientControllers.deleteIngredient(id)
     .then(data => {
@@ -83,11 +84,23 @@ const deleteIngredient = (req, res) => {
     })
 }
 
+const postIngredientToUser = async (req, res) => {
+  try {
+    const { id: userId } = req.user, { ingredientId } = req.params, { amount } = req.body
+    if(!amount) return sendResponse(res, {message: 'Missing data', fields: {amount: 'string'}}, 404)
+    const data = await ingredientControllers.addIngredientToUser({userId, ingredientId, amount})
+    sendResponse(res, data)
+
+  } catch (error) {
+    sendError(res, error)
+  }
+}
 
 module.exports = {
   getAllIngredients,
   getIngredientById,
   postIngredient,
   patchIngredient,
-  deleteIngredient
+  deleteIngredient,
+  postIngredientToUser
 }

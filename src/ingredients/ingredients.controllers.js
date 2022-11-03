@@ -1,6 +1,7 @@
 const { uuidGenerator } = require("../utils/functions")
 
 const Ingredients = require('../models/ingredients.model')
+const UsersIngredients = require("../models/usersIngredients.model")
 
 const getAllIngredients = async () => {
   const data = await Ingredients.findAll()
@@ -44,11 +45,17 @@ const deleteIngredient = async (id) => {
   return data
 }
 
+const addIngredientToUser = (data) => UsersIngredients.create({
+  id: uuidGenerator(),
+  ...data
+})
+
 
 module.exports = {
   getAllIngredients,
   getIngredientById,
   createIngredient,
   updateIngredient,
-  deleteIngredient
+  deleteIngredient,
+  addIngredientToUser
 }
