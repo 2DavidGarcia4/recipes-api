@@ -25,3 +25,5 @@ router.route('/:id')
     passport.authenticate('jwt', {session: false}),
     services.deleteRecipe
   )
+
+module.exports = router
