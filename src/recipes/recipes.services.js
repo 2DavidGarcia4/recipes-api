@@ -69,10 +69,23 @@ const deleteRecipe = async (req, res) => {
 }
 
 
+const getMyRecipes = async (req, res) => {
+  try {
+    const { id: userId } = req.user
+    console.log('Id:', userId)
+    const recipes = await controllers.getMyRecipes(userId)
+    sendResponse(res, recipes)
+
+  } catch (error) {
+    sendError(res, error)
+  }
+}
+
 module.exports = {
   getAllRecipes,
   getRecipeById,
   postRecipes,
   patchRecipe,
-  deleteRecipe
+  deleteRecipe,
+  getMyRecipes
 }
