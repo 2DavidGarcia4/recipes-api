@@ -6,7 +6,13 @@ const db = new Sequelize({
   host: dbHost,
   username: userName, 
   password: password, 
-  database: dbName
+  database: dbName,
+  dialectOptions: process.env.NODE_ENV === 'production' ? {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false
+    }
+  } : {}
 })
 
 module.exports = db

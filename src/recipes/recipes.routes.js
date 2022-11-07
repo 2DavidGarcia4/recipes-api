@@ -4,11 +4,6 @@ const passport = require("passport")
 const { adminValidate } = require("../middlewares/role.midelware")
 require("../middlewares/auth.middleware")(passport)
 
-router.get('/me',
-  passport.authenticate('jwt', {session: false}),
-  services.getMyRecipes
-)
-
 router.route('/')
   .get(
     services.getAllRecipes
